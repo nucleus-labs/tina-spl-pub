@@ -79,9 +79,9 @@ ifeq ($(buildconfig), $(wildcard $(buildconfig)))
 	export LICHEE_BUSSINESS LICHEE_CHIP_CONFIG_DIR LICHEE_PLAT_OUT LICHEE_IC
 endif
 #include config file
+sinclude $(TOPDIR)/.module.common.mk
 include $(TOPDIR)/mk/config.mk
 include $(TOPDIR)/mk/checkconf.mk
-sinclude $(TOPDIR)/.module.common.mk
 
 BOARD_EXIST := $(shell if [ x$(BOARD) != x ]; then echo yes; else echo no; fi;)
 ifeq (x$(BOARD_EXIST),xno)
